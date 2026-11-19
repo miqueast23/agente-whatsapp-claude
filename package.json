@@ -1,0 +1,36 @@
+{
+  "name": "agente-whatsapp-claude",
+  "version": "0.3.0",
+  "description": "Agente IA para WhatsApp (asistente legal de despacho) con Claude API + whatsapp-web.js. Texto, voz, imágenes, PDFs, Google Calendar, recordatorios, notificaciones Slack/email, panel web, e ingesta de base documental.",
+  "main": "src/index.js",
+  "type": "commonjs",
+  "scripts": {
+    "setup": "node scripts/setup.js",
+    "start": "node src/index.js",
+    "dev": "node --watch src/index.js",
+    "calendario:auth": "node scripts/google-auth.js",
+    "indexar": "node scripts/reindexar.js",
+    "borrar-cliente": "node scripts/borrar-cliente.js",
+    "purgar": "node -e \"require('./src/retention').ejecutarPurga()\""
+  },
+  "dependencies": {
+    "@anthropic-ai/sdk": "^0.40.0",
+    "basic-auth": "^2.0.1",
+    "dotenv": "^16.4.5",
+    "express": "^4.21.0",
+    "googleapis": "^144.0.0",
+    "html-to-docx": "^1.8.0",
+    "isomorphic-dompurify": "^2.16.0",
+    "mammoth": "^1.8.0",
+    "marked": "^14.1.3",
+    "node-cron": "^3.0.3",
+    "nodemailer": "^8.0.7",
+    "openai": "^4.71.0",
+    "pdf-parse": "^1.1.1",
+    "qrcode-terminal": "^0.12.0",
+    "whatsapp-web.js": "^1.23.0"
+  },
+  "engines": {
+    "node": ">=18.17.0"
+  }
+}

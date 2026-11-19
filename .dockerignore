@@ -1,0 +1,12 @@
+node_modules
+npm-debug.log
+.env
+.git
+.gitignore
+.wwebjs_auth
+.wwebjs_cache
+data
+*.log
+README.md
+Dockerfile
+docker-compose.yml

@@ -1,0 +1,19 @@
+services:
+  bot:
+    build: .
+    container_name: agente-whatsapp
+    restart: unless-stopped
+    env_file: .env
+    init: true
+    ports:
+      - "3000:3000"   # panel web (cambiar si cambias WEB_PORT)
+    volumes:
+      - ./.wwebjs_auth:/app/.wwebjs_auth
+      - ./.wwebjs_cache:/app/.wwebjs_cache
+      - ./data:/app/data
+      # Base documental legal (sólo lectura). En Docker cambia BASE_LEGAL_PATH
+      # de tu .env a /base-legal o lo que pongas a la derecha aquí.
+      - "D:/Base de datos Legal:/base-legal:ro"
+    stdin_open: true
+    tty: true
+    # Primer arranque: `docker compose up` para ver el QR. Luego `-d`.
